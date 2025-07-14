@@ -25,13 +25,15 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+require("core.lsp")
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "autocmds"
--- require "plugins.catpucchin"
+require "plugins.catpuccin"
 
 -- vim.cmd.colorscheme("catppuccin")
 

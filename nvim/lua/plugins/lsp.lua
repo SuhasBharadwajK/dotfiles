@@ -15,19 +15,16 @@ return {
 			}
 		},
 		config = function()
-      require("configs.lspconfig")
-      require("configs.custom.lspconfig")
+      --require("configs.lspconfig")
+      --require("configs.custom.lsp")
 		end
 	},
   {
     "mason-org/mason.nvim",
-    opts = {}
+    opts = {},
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = { "lua_ls", "clangd", "rust_analyzer" },
-    },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
