@@ -15,27 +15,30 @@ M.base46 = {
   -- },
 }
 
-M.add = {
-  StatuslineCustom = { bold = false },
-}
-
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
 --       tabufline = {
 --          lazyload = false
 --      }
 --}
-vim.api.nvim_set_hl(0, "StatuslineCustom1", { fg = "White", bg = "" })
+
+vim.api.nvim_set_hl(0, "RecIndicatorStyle", { fg = "#ffffff", bg = "#c14a4a" })
+vim.api.nvim_set_hl(0, "RecSeparatorStartStyle", { fg = "#353330", bg = "#c14a4a" })
+vim.api.nvim_set_hl(0, "RecSeparatorEndStyle", { fg = "#c14a4a", bg = "#353330" })
+
+local separator = "";
+local recordingEndSeparator = "%#RecSeparatorEndStyle#" .. separator
+local recordingStartSeparator = "%#RecSeparatorStartStyle#" .. separator
 
 M.ui = {
   statusline = {
     theme = "default",
     separator_style = "default",
-    order = { "mode", "abc", "file", "git", "%=", "lsp_msg", "%=", "lsp", "cwd" },
+    order = { "mode", "recording", "file", "git", "%=", "lsp_msg", "%=", "lsp", "diagnostics", "cwd", "cursor" },
     modules = {
-      abc = function()
+      recording = function()
         local rec = vim.fn.reg_recording()
-        return rec ~= "" and "%#StatuslineCustom1#" .. "🔴 Recording @" .. rec .. " " or ""
+        return rec ~= "" and recordingStartSeparator .. "%#RecIndicatorStyle#" .. " Recording @" .. rec .. " " .. recordingEndSeparator or ""
       end,
     }
   },
