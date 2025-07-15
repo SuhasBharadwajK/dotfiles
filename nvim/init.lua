@@ -25,7 +25,7 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
-require("core.lsp")
+require("custom.lspconfig")
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
@@ -33,9 +33,8 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "autocmds"
-require "plugins.catpuccin"
 
--- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin")
 
 vim.schedule(function()
   require "mappings"

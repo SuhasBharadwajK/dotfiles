@@ -8,6 +8,7 @@ require("mason-lspconfig").setup({
 
 vim.lsp.enable({
   "lua_ls",
+  "clangd",
 })
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
@@ -15,14 +16,15 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 vim.keymap.set({ 'n' }, '<leader>ca', vim.lsp.buf.code_action, {})
 
 vim.diagnostic.config({
-  virtual_lines = true,
+  virtual_lines = false,
   virtual_text = true,
   underline = true,
   update_in_insert = false,
   severity_sort = true,
   float = {
     border = "rounded",
-    source = true
+    source = false,
+    focusable = false,
   },
   signs = {
     text = {
