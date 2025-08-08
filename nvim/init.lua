@@ -39,3 +39,7 @@ vim.cmd.colorscheme("catppuccin")
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.keymap.set('i', "<ESC><ESC>", '', {})
+vim.keymap.set('n', "<ESC><ESC>", '', {})
+
